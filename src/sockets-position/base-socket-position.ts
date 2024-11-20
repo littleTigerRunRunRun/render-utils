@@ -63,7 +63,7 @@ export abstract class BaseSocketPosition<Schemes extends BaseSchemes, K> impleme
         const { id: nodeId } = context.data
 
         await Promise.all(this.sockets.snapshot()
-          .filter(item => item.nodeId === context.data.id && item.side === 'output')
+          .filter(item => item.nodeId === context.data.id && (item.inout !== 'in' && item.side === 'output' || item.inout === 'in' && item.side === 'input'))
           .map(async item => {
             const { side, key, element } = item
             const position = await this.calculatePosition(nodeId, side, key, element)

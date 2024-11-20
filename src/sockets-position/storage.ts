@@ -1,4 +1,4 @@
-import { Position, Side } from '../types'
+import { Position, Side, InOut } from '../types'
 
 type SocketPayload = {
   element: HTMLElement
@@ -6,6 +6,7 @@ type SocketPayload = {
   key: string
   nodeId: string
   position: Position // relative to node
+  inout?: InOut
 }
 
 export class SocketsPositionsStorage {

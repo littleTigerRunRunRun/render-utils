@@ -6,6 +6,7 @@ export type RenderSignal<Type extends string, Data> =
   | { type: 'rendered', data: { element: HTMLElement, type: Type } & Data }
 
 export type Side = 'input' | 'output'
+export type InOut = 'in' | 'out'
 export type Position = { x: number, y: number }
 
 export type ExpectArea2DExtra<Schemes extends BaseSchemes> =
